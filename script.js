@@ -1,3 +1,4 @@
+// fetch data from the API
 fetch('https://finalspaceapi.com/api/v0/episode/')
   .then(response => response.json())
   .then(chapters => {
@@ -10,19 +11,17 @@ fetch('https://finalspaceapi.com/api/v0/episode/')
         const ulId = `${chapter.id}`; // Generate a unique ul id for each chapter.
         contentHTML += `
             <div class="chapter-card">
-            <h2>${chapter.name}</h2>
-            <p>Air Date: ${chapter.air_date}</p>
-            <p>Director: ${chapter.director}</p>
-            <p>Writer: ${chapter.writer}</p>
-            <div class="img-container">
+                <h2>${chapter.name}</h2>
+                <p>Air Date: ${chapter.air_date}</p>
+                <p>Director: ${chapter.director}</p>
+                <p>Writer: ${chapter.writer}</p>
                 <img src="${chapter.img_url}" alt="${chapter.name}" width="150" class = "episode-img">
-            </div>
-            <details>
-                <summary>Characters</summary>
-                <ul id="${ulId}">
-                    <li>Loading characters...</li>
-                </ul>
-            </details>
+                <details>
+                    <summary>Characters</summary>
+                    <ul id="${ulId}">
+                        <li>Loading characters...</li>
+                    </ul>
+                </details>
             </div>
         `;
     });
